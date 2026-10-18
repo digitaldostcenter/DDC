@@ -1,0 +1,6 @@
+{
+  "name": "DDC Admin Control",
+  "description": "Professional Admin Control Panel for Digital Dost Centre (digitaldostcenter.online). Manage jobs, admit cards, results, notifications, and website content securely.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
