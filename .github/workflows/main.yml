@@ -3,10 +3,6 @@ name: Build DDC Admin APK
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - "android/**"
-      - ".github/workflows/main.yml"
 
 jobs:
   build:
@@ -22,11 +18,14 @@ jobs:
           distribution: temurin
           java-version: "17"
 
-      - name: Build debug APK
-        run: |
-          chmod +x android/gradlew
-          cd android
-          ./gradlew assembleDebug
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.9"
+
+      - name: Build APK
+        working-directory: android
+        run: gradle assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
